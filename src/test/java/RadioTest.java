@@ -4,6 +4,18 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
+    public void test() {
+        Radio radio = new Radio(10);
+        radio.setCurrentRadioStation(9);
+
+
+        int expected = 9;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void setCurrentRadioStationInLimit() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(7);
@@ -91,10 +103,10 @@ public class RadioTest {
     @Test
     public void setIncreaseVolumeCurrentRadioVolumeMax() {
         Radio volume = new Radio();
-        volume.setCurrentRadioVolume(10);
+        volume.setCurrentRadioVolume(100);
         volume.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getCurrentRadioVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -115,10 +127,10 @@ public class RadioTest {
     @Test
     public void setReductionVolumeCurrentRadioVolumeLimit() {
         Radio volume = new Radio();
-        volume.setCurrentRadioVolume(3);
+        volume.setCurrentRadioVolume(30);
         volume.reductionVolume();
 
-        int expected = 2;
+        int expected = 29;
         int actual = volume.getCurrentRadioVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -139,10 +151,10 @@ public class RadioTest {
     @Test
     public void setReductionVolumeCurrentRadioVolumeMax() {
         Radio volume = new Radio();
-        volume.setCurrentRadioVolume(10);
+        volume.setCurrentRadioVolume(100);
         volume.reductionVolume();
 
-        int expected = 9;
+        int expected = 99;
         int actual = volume.getCurrentRadioVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -213,9 +225,9 @@ public class RadioTest {
     public void shouldSetCurrentRadioVolumeInLimit() {
         Radio volume = new Radio();
 
-        volume.setCurrentRadioVolume(5);
+        volume.setCurrentRadioVolume(15);
 
-        int expected = 5;
+        int expected = 15;
         int actual = volume.getCurrentRadioVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -225,9 +237,9 @@ public class RadioTest {
     public void shouldSetCurrentRadioVolumeMax() {
         Radio volume = new Radio();
 
-        volume.setCurrentRadioVolume(10);
+        volume.setCurrentRadioVolume(100);
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getCurrentRadioVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -249,7 +261,7 @@ public class RadioTest {
     public void shouldSetCurrentRadioVolumeUpLimit() {
         Radio volume = new Radio();
 
-        volume.setCurrentRadioVolume(11);
+        volume.setCurrentRadioVolume(110);
 
         int expected = 0;
         int actual = volume.getCurrentRadioVolume();
